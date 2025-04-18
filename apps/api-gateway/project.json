@@ -8,20 +8,27 @@
     "build": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "webpack-cli build",
-        "args": ["node-env=production"]
+        "commands": [
+          "bun --hot ./src/main.ts"
+        ],
+        "cwd": "apps/api-gateway"
       },
       "configurations": {
         "development": {
-          "args": ["node-env=development"]
+          "args": [
+            "node-env=development"
+          ]
         }
       }
     },
     "serve": {
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
-      "dependsOn": ["build"],
+      "dependsOn": [
+        "build"
+      ],
       "options": {
+        "command": "bun --hot ./src/main.ts",
         "buildTarget": "api-gateway:build",
         "runBuildTargetDependencies": false
       },

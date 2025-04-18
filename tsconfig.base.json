@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "api-gateway/*": ["apps/api-gateway/src/*"],
+      "api-gateway-e2e/*": ["apps/api-gateway-e2e/src/*"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

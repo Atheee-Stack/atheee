@@ -1,0 +1,14 @@
+# apps/your-app/bunfig.toml
+[build]
+target = "node"
+entryPoints = ["apps/api-gateway/src/main.ts"]
+outdir = "./dist"
+minify = true
+sourcemap = "external"
+[resolve]
+alias = {
+  "@nestjs/websockets/socket-module" = "./node_modules/@nestjs/websockets/dist/socket-module.js"
+}
+[dev]
+port = 3000
+hot = true
